@@ -2,13 +2,17 @@ import * as Styled from "../styles";
 import Button from "../../button";
 import katieImage from "../../../assets/katie.png";
 import { capitalizeName } from "../../../utils";
+import { useContext } from "react";
+import { FormContext } from "../../../context/FormProvider";
 
 interface ThankYouMessageProps {
   name: string;
-  submitAnotherForm: () => void;
+  // submitAnotherForm: () => void;
 }
 
-const ThankYouMessage = ({ name, submitAnotherForm }: ThankYouMessageProps) => {
+// const ThankYouMessage = ({ name, submitAnotherForm }: ThankYouMessageProps) => {
+const ThankYouMessage = ({ name }: ThankYouMessageProps) => {
+  const { submitAnotherForm } = useContext(FormContext);
   const formattedName = capitalizeName(name);
 
   return (
